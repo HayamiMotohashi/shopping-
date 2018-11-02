@@ -1,0 +1,20 @@
+<header class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <%= link_to "Shopping for everyone", root_path, id: "logo" %>
+      <div class="search">
+        <form action="/search/articles" accept-charset="UTF-8" method="get">
+          <input type="text" name="q" id="q" placeholder="お探しのものは何ですか?">
+        </form>
+      </div>
+
+
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Orders",   order_path %></li>
+        <li><%= link_to "Cart",   cart_path %></li>
+        <li><%= link_to "Log in", '#' %></li>
+        <li><%= link_to "Admin", admin_path %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
