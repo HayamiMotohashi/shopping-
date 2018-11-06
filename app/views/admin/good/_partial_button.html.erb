@@ -1,0 +1,6 @@
+<%# app/views/admin/good/_partial_button.html.erb %>
+
+<%= form_tag({ action: :index }, { method: :get }) do %>
+  <%= text_field_tag(:text_field) %>
+  <%= submit_tag(:submit) %>
+<% end %>

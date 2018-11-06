@@ -1,27 +1,7 @@
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
-<h>
-  Index_Items<br>
-</h>
+<h>商品一覧</h>
+
+<% @goods.each do |good| %>
+  <p><%= good.name %></p>
+  <p><%= good.price %></p>
+  <p><%= image_tag(good.image.url)%></p>
+<% end %>
