@@ -11,4 +11,14 @@ class StaticPagesController < ApplicationController
 
   def order
   end
+
+  def show
+  end
+
+  def detail
+    @good = Good.new
+    @good = Good.find(1)
+  end
+
+
 end

@@ -1,7 +1,13 @@
-<h>商品一覧</h>
-
+<h1>商品一覧</h1>
+<div class="items">
 <% @goods.each do |good| %>
-  <p><%= good.name %></p>
-  <p><%= good.price %></p>
+  <h2><%= link_to good.name , detail_path,:style=>"text-decoration: none;"%></h2>
+  <p><%= good.price %>円</p>
   <p><%= image_tag(good.image.url)%></p>
+  <p><%= good.id %></p>
+  <!-- <%= button_to "商品詳細を見る", {controller: 'static_pages', action: 'detail'}, {method: :get, params:[:id],class: "mybutton"} %>
+  <% @@good_id  = good.id %> -->
+  <%= button_to "カートに入れる", {controller: 'static_pages', action: 'order'}, {method: :get, class: "mybutton"} %>
+</div>
+
 <% end %>
