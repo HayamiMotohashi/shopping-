@@ -11,7 +11,7 @@ ActiveAdmin.register Good do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-permit_params :name, :image, :price, :note
+permit_params :name, :image, :price, :note, line_items_attributes: [:good_id, :name]
 
 index do
   selectable_column

@@ -1,1 +1,52 @@
-<h>カートに入っている商品</h>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<br>
+<p>カートにある商品</p>
+<span>　　</span><%= link_to '買い物を続ける', index_path, :class => 'btn' %><span>
+
+  <table>
+      <tr>
+
+        <th>商品名</th>
+        <th>値段</th>
+        <th>商品イメージ</th>
+        <th>数量</th>
+        <th>合計</th>
+        <th></th>
+
+
+      </tr>
+
+  <% @cart.line_items.each do |item| %>
+  <tr>
+  <td>
+    <h2><%= link_to item.good.name , detail_path,:style=>"text-decoration: none;"%></h2>
+  </td>
+  <td>
+    <p><%= item.good.price %>円</p>
+  </td>
+  <td>
+    <p><%= image_tag(item.good.image.url)%></p>
+  </td>
+  <td>
+    <p><%= item.quantity%></p>
+  </td>
+  <td>
+    <%= (item.total_price).to_i %>円
+  </td>
+  <td>
+    <%= button_to '削除', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか？'}%>
+  </td>
+
+  <% end %>
+
+  <tr>
+			<td colspan="6"><font size="5">総計：<%= (@cart.total_price).to_i %>円</font></td>
+		</tr>
+
+
+</table>
+
+<%= button_to 'カートにある商品を購入する', '#', class: 'fbtn' %>
+<%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>

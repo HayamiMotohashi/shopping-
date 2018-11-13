@@ -1,7 +1,6 @@
-<h1>商品の詳細について</h1>
-<p>ここでは、商品の詳細説明をみれるようにする予定です</p>
+<h1>商品の詳細</h1>
 
-<p>確認用のID表示</p>
+<p>商品詳細</p>
 <p><%= @good.id %></p>
 
 
@@ -9,6 +8,4 @@
 <p>商品の値段:  <%= @good.price %>円</p>
 <p>商品の詳細な説明: <%= @good.note %></p>
 <p><%= image_tag(@good.image.url)%></p>
-<%= button_to "カートに入れる", {controller: 'static_pages', action: 'order'}, {method: :get, class: "mybutton"} %>
-
-<p>商品詳細を見るためのページである。ここでは商品の詳細を表示し、カートに入れるボタンを押せるようにしておく。</p>
+    <%= button_to 'カートに入れる', line_items_path(good_id: @good), class: 'fbtn' %>

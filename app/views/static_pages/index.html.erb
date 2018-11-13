@@ -1,13 +1,46 @@
 <h1>商品一覧</h1>
-<div class="items">
+
+<% if user_signed_in? %>
+
+<br>
+<%= button_to 'カートにある商品を購入する', '#', class: 'fbtn' %>
+<br>
+<table>
+    <tr>
+      <th>商品名</th>
+      <th>商品価格</th>
+      <th>商品イメージ</th>
+      <th></th>
+
+
+
+
+    </tr>
+
 <% @goods.each do |good| %>
-  <h2><%= link_to good.name , detail_path,:style=>"text-decoration: none;"%></h2>
+<tr>
+
+    <td>
+  <h2><%= link_to good.name , detail_path(good.id),:style=>"text-decoration: none;"%></h2>
+</td>
+<td>
   <p><%= good.price %>円</p>
+</td>
+<td>
   <p><%= image_tag(good.image.url)%></p>
-  <p><%= good.id %></p>
-  <!-- <%= button_to "商品詳細を見る", {controller: 'static_pages', action: 'detail'}, {method: :get, params:[:id],class: "mybutton"} %>
-  <% @@good_id  = good.id %> -->
-  <%= button_to "カートに入れる", {controller: 'static_pages', action: 'order'}, {method: :get, class: "mybutton"} %>
-</div>
+  </td>
+  <td>
+      <%= button_to 'カートに入れる', line_items_path(good_id: good), class: 'fbtn' %>
+</td>
+<tr>
+<% end %>
+</table>
+
+
+
+<% else %>
+<p>このショッピングサイトを利用するためにはログインが必要です</p>
+<p>利用するためにまずはログインをしてください</p>
+<%= link_to "ログインはこちらから", new_user_session_path %>
 
 <% end %>

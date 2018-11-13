@@ -13,11 +13,12 @@ class StaticPagesController < ApplicationController
   end
 
   def show
+
   end
 
   def detail
     @good = Good.new
-    @good = Good.find(1)
+    @good = Good.find(params[ :format])
   end
 
 
