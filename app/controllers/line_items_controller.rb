@@ -26,7 +26,6 @@ class LineItemsController < ApplicationController
   def create
 
 	@cart = current_cart
-
 	good = Good.find(params[:good_id])
 
 	@line_item = @cart.add_good(good.id)
@@ -35,7 +34,7 @@ class LineItemsController < ApplicationController
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'カートに商品が追加されました。' }
         format.json { render :show, status: :created, location: @line_item }
-        NotificationMailer.send_confirm_to_user(current_user,current_cart).deliver 
+
       else
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }

@@ -3,6 +3,6 @@ class NotificationMailer < ApplicationMailer
     @current_user = current_user
     @current_cart = current_cart
         mail to: @current_user.email,
-         subject: '現在カートに入っている商品'
+         subject: '商品の注文完了確認メール'
   end
 end

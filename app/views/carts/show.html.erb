@@ -48,5 +48,5 @@
 
 </table>
 
-<%= button_to 'カートにある商品を購入する', '#', class: 'fbtn' %>
+<%= button_to '注文する', new_order_path, method: :get, class: 'fbtn' %>
 <%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>

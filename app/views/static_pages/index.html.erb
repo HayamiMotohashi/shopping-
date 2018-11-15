@@ -1,9 +1,13 @@
-<h1>商品一覧</h1>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
 
-<% if user_signed_in? %>
+<h1>商品一覧</h1>
+<p>サイトを利用するためには、まずはログインが必要です。</p>
+
 
 <br>
-<%= button_to 'カートにある商品を購入する', '#', class: 'fbtn' %>
+<%= button_to '注文する', new_order_path, method: :get,class: 'fbtn' %>
 <br>
 <table>
     <tr>
@@ -30,17 +34,13 @@
   <p><%= image_tag(good.image.url)%></p>
   </td>
   <td>
+      <% if user_signed_in? %>
       <%= button_to 'カートに入れる', line_items_path(good_id: good), class: 'fbtn' %>
+      <% else %>
+      <%= button_to 'カートに入れる', new_user_session_path, class: 'fbtn' %>
+      <% end %>
+
 </td>
 <tr>
 <% end %>
 </table>
-
-
-
-<% else %>
-<p>このショッピングサイトを利用するためにはログインが必要です</p>
-<p>利用するためにまずはログインをしてください</p>
-<%= link_to "ログインはこちらから", new_user_session_path %>
-
-<% end %>

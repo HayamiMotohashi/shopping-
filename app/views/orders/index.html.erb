@@ -1,0 +1,57 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<h1>注文一覧</h1>
+<% if user_signed_in? %>
+<table>
+  <thead>
+    <tr>
+      <th>注文ID</th>
+      <th>注文内容</th>
+      <th>合計金額</th>
+      <th>氏名</th>
+      <th>住所</th>
+      <th>メールアドレス</th>
+      <th>電話番号</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+  <%if current_user.id == order.user_id%>
+	<td><%= order.id %></td>
+
+  <% @sum = 0%>
+	<td>
+	<% order.line_items.each do |item| %>
+		[商品名：<%= item.good.name %>]
+		[数量：<%= item.quantity %>]
+		[金額：<%= (item.total_price).to_i %>円]
+    <% @sum += (item.total_price).to_i %>
+		<br>
+	<% end %>
+	</td>
+        <td><%= @sum%></td>
+        <td><%= order.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.email %></td>
+        <td><%= order.tel_number %></td>
+        <td>注文のステータス</td>
+        </tr>
+
+    <% end %>
+  <%end%>
+  </tbody>
+</table>
+<%else%>
+<p>注文履歴を確認するためには、ログインが必要です。まずはログインをしてください。</p>
+<%= link_to 'ログインはこちらから' , new_user_session_path%>
+
+<%end%>
+<br>
+
+<%= link_to '戻る',index_path, :class => 'btn' %>

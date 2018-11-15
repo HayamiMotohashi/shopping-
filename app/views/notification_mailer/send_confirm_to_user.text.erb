@@ -1,6 +1,7 @@
 <%= @current_user.name %> 様
 
-現在カートに入っている商品は以下の通りです。このまま購入を検討ください。
+以下の商品を購入しました。
+商品の到着まで、しばらくお待ちください。
 
 <% @current_cart.line_items.each do |item| %>
   商品名：<%=item.good.name%>
@@ -10,3 +11,5 @@
 
 <% end %>
 総計：<%= (@current_cart.total_price).to_i %>円
+________________________________________________________
+Shopping for everyone

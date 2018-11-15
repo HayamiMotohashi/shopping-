@@ -1,0 +1,24 @@
+
+
+<h1>注文情報の入力</h1>
+<br>
+<div class="order_form">
+	<fieldset>
+		<legend>お客様の情報を入力して下さい。</legend>
+		<%= render 'form' %>
+	</fieldset>
+</div>
+<br>
+<%= link_to '買い物を続ける',index_path, class: 'btn' %>
+
+
+
+<h2>お客様のご注文希望商品</h2>
+<% @cart.line_items.each do |item| %>
+  商品名：<%=item.good.name%><br>
+  商品価格：<%= item.good.price %>円<br>
+  数量：<%= item.quantity%>　個<br>
+  小計：<%= (item.total_price).to_i %>円 <br>
+
+<% end %>
+総計：<%= (@cart.total_price).to_i %>円

@@ -1,0 +1,35 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2>エラーが<%= @order.errors.count %>件あります。お客様情報を入力して下さい。</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <p>お客様のお名前:<%= current_user.name%></p>
+  <p>お客様のメールアドレス:<%= current_user.email%></p>
+  <p>残りの情報を入力してください。</p>
+
+  <%= f.hidden_field :name, :value => current_user.name %>
+  <%= f.hidden_field :email, :value => current_user.email %>
+
+  <div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_area :address, rows: 3, cols: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :電話番号 %>
+    <%= f.telephone_field :tel_number %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit '注文を確定する',data:
+    { confirm: "本当に注文をしてよろしいですか？"} %>
+  </div>
+<% end %>
