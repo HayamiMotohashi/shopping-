@@ -175,20 +175,9 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     public_suffix (3.0.2)
-<<<<<<< HEAD
-<<<<<<< HEAD
     puma (3.12.2)
     rack (2.0.5)
-=======
-    puma (3.11.4)
-    rack (2.0.7)
->>>>>>> b11eceba15b0b1c00590b7eb588462346168595d
     rack-test (1.0.0)
-=======
-    puma (3.11.4)
-    rack (2.0.7)
-    rack-test (1.1.0)
->>>>>>> 621775fd456456a0e418152230fc5be365967d14
       rack (>= 1.0, < 3)
     rails (5.2.0)
       actioncable (= 5.2.0)
@@ -221,16 +210,6 @@ GEM
       activesupport (>= 5.0)
       i18n
     rb-fsevent (0.10.3)
-<<<<<<< HEAD
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
-    responders (3.0.0)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
-    ruby_dep (1.5.0)
-    rubyzip (1.3.0)
-    sass (3.6.0)
-=======
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     responders (2.4.0)
@@ -239,7 +218,6 @@ GEM
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.7.4)
->>>>>>> c514cb4b4ae9482397fdc03b898adde9895c0ac6
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
